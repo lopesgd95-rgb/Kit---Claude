@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit Filhos Firmados na Rocha — Forme a Fé dos Seus Filhos</title>
+  <meta name="description" content="5 ebooks práticos, bíblicos e acolhedores para formar a fé, o caráter e a identidade dos seus filhos — sem culpa, sem perfeição, com graça." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-primary: #0f1b0f;
+      --bg-secondary: #1a2e1a;
+      --bg-card: #162316;
+      --gold: #c9a84c;
+      --gold-light: #e8c96a;
+      --text-main: #f5f0e8;
+      --text-secondary: #c8bfa8;
+      --green-accent: #2d6a2d;
+      --cta-green: #1a7a1a;
+      --cta-hover: #22a022;
+      --red: #c0392b;
+      --border-gold: rgba(201,168,76,0.25);
+      --border-gold-strong: rgba(201,168,76,0.3);
+      --shadow-gold: 0 4px 30px rgba(201,168,76,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      background: var(--bg-primary);
+      color: var(--text-main);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+    /* ── FADE-IN ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+
+    /* ── PULSE ANIMATION ── */
+    @keyframes pulse-cta {
+      0%   { box-shadow: 0 0 0 0 rgba(26,122,26,0.55); }
+      70%  { box-shadow: 0 0 0 18px rgba(26,122,26,0); }
+      100% { box-shadow: 0 0 0 0 rgba(26,122,26,0); }
+    }
+    @keyframes pulse-gold {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+
+    /* ── URGENCY BAR ── */
+    #urgency-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: var(--red);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    #urgency-bar .urgency-text { letter-spacing: 0.3px; }
+    #countdown-bar {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 6px;
+      padding: 4px 12px;
+      font-size: 15px;
+      letter-spacing: 1px;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    body { padding-top: 52px; }
+
+    /* ── SECTION WRAPPER ── */
+    .section { position: relative; overflow: hidden; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section-pad { padding: 90px 0; }
+    .section-pad-sm { padding: 60px 0; }
+
+    /* ── GOLD DIVIDER ── */
+    .gold-divider {
+      width: 70px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+    .gold-divider-sm {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      background: linear-gradient(180deg, #0f1b0f 0%, #1a2e1a 100%);
+      text-align: center;
+      padding: 100px 0 90px;
+      position: relative;
+    }
+    #hero .hero-leaf {
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    #hero .hero-leaf-left {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      opacity: 0.12;
+      pointer-events: none;
+      transform: rotate(180deg);
+    }
+    #hero h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      color: var(--text-main);
+      line-height: 1.25;
+      max-width: 860px;
+      margin: 0 auto 28px;
+    }
+    #hero .subheadline {
+      font-size: clamp(17px, 2.5vw, 20px);
+      color: var(--text-secondary);
+      max-width: 680px;
+      margin: 24px auto 40px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--cta-green);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(17px, 2.5vw, 20px);
+      padding: 20px 48px;
+      border-radius: 50px;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      animation: pulse-cta 2.2s infinite;
+      transition: background 0.25s ease, transform 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      transition: left 0.5s ease;
+    }
+    .cta-btn:hover::before { left: 150%; }
+    .cta-btn:hover {
+      background: var(--cta-hover);
+      transform: translateY(-2px);
+    }
+    .cta-btn:active { transform: translateY(0); }
+
+    .cta-trust {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #8a9a8a;
+    }
+    .social-proof {
+      margin-top: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text-secondary);
+    }
+    .stars { color: #f0b429; font-size: 18px; letter-spacing: 2px; }
+
+    /* ── DOR ── */
+    #dor { background: var(--bg-secondary); }
+    .dor-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+    @media (max-width: 640px) { .dor-grid { grid-template-columns: 1fr; } }
+    .dor-card {
+      background: var(--bg-card);
+      border-left: 3px solid var(--gold);
+      border-radius: 12px;
+      padding: 20px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .dor-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-gold);
+    }
+    .dor-checkbox {
+      font-size: 20px;
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .dor-card p { font-size: 15px; color: var(--text-main); }
+    .empathy-box {
+      background: #0f3a0f;
+      border: 1px solid var(--border-gold-strong);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-top: 36px;
+      text-align: center;
+      font-size: 17px;
+      color: var(--text-main);
+      font-style: italic;
+      line-height: 1.8;
+    }
+
+    /* ── VIRADA ── */
+    #virada { background: var(--bg-primary); text-align: center; }
+    #virada h2 { color: var(--text-main); font-size: clamp(26px, 4vw, 36px); margin: 24px 0 40px; }
+    .virada-text { max-width: 720px; margin: 0 auto; }
+    .virada-p { font-size: 18px; color: var(--text-secondary); margin-bottom: 22px; }
+    .virada-highlight {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(19px, 2.5vw, 22px);
+      color: var(--gold);
+      border-left: 3px solid var(--gold);
+      padding-left: 24px;
+      text-align: left;
+      margin-top: 32px;
+      line-height: 1.6;
+    }
+
+    /* ── KIT ── */
+    #kit { background: var(--bg-secondary); }
+    #kit h2 { color: var(--gold); font-size: clamp(28px, 4vw, 40px); text-align: center; }
+    #kit .kit-sub { color: var(--text-secondary); font-size: 18px; text-align: center; margin-top: 12px; margin-bottom: 50px; }
+    .kit-cards { display: flex; flex-direction: column; gap: 24px; }
+    .kit-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-strong);
+      border-radius: 16px;
+      padding: 32px 36px;
+      box-shadow: var(--shadow-gold);
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .kit-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.18);
+    }
+    .kit-badge {
+      display: inline-block;
+      background: #0a1f0a;
+      color: var(--gold);
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 6px;
+      border: 1px solid var(--border-gold);
+      margin-bottom: 18px;
+    }
+    .kit-card h3 { font-size: 24px; color: var(--gold-light); margin-bottom: 14px; }
+    .kit-card .kit-desc { font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; }
+    .kit-card .kit-for { font-size: 14px; color: var(--text-secondary); }
+    .kit-card .kit-for strong { color: var(--gold); }
+    .kit-number {
+      position: absolute;
+      top: 28px;
+      right: 32px;
+      font-family: 'Playfair Display', serif;
+      font-size: 64px;
+      font-weight: 700;
+      color: rgba(201,168,76,0.06);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ── VALOR ── */
+    #valor { background: var(--bg-primary); text-align: center; }
+    #valor h2 { color: var(--text-main); font-size: clamp(26px, 4vw, 36px); margin-bottom: 40px; }
+    .price-table {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold-strong);
+      border-radius: 16px;
+      overflow: hidden;
+      max-width: 640px;
+      margin: 0 auto 36px;
+      box-shadow: var(--shadow-gold);
+    }
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 28px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      border-bottom: 1px solid rgba(201,168,76,0.1);
+    }
+    .price-row:nth-child(even) { background: rgba(255,255,255,0.02); }
+    .price-row:last-child { border-bottom: none; }
+    .price-row .item-name { text-align: left; }
+    .price-row .item-price { color: var(--red); text-decoration: line-through; font-size: 14px; white-space: nowrap; }
+    .price-separator { height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); margin: 4px 0; }
+    .price-row.total-row { padding: 16px 28px; background: rgba(201,168,76,0.05); }
+    .price-row.total-row .item-name { font-weight: 700; color: var(--text-main); font-size: 16px; }
+    .price-row.total-row .item-price { font-size: 16px; color: var(--red); }
+    .price-row.final-row {
+      padding: 22px 28px;
+      background: rgba(26,122,26,0.12);
+      border-top: 2px solid rgba(26,122,26,0.4);
+    }
+    .price-row.final-row .item-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: #5dba5d;
+    }
+    .final-price {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: #5dba5d;
+    }
+    .valor-note { font-size: 15px; color: var(--text-secondary); margin-bottom: 36px; }
+
+    /* ── BENEFÍCIOS ── */
+    #beneficios { background: var(--bg-secondary); }
+    #beneficios h2 { color: var(--gold); font-size: clamp(26px, 4vw, 36px); text-align: center; margin-bottom: 40px; }
+    .beneficios-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 640px) { .beneficios-grid { grid-template-columns: 1fr; } }
+    .beneficio-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 14px;
+      padding: 22px 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .beneficio-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-gold); }
+    .beneficio-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .beneficio-card p { font-size: 15px; color: var(--text-main); }
+
+    /* ── PARA QUEM ── */
+    #para-quem { background: var(--bg-primary); }
+    #para-quem h2 { color: var(--text-main); font-size: clamp(26px, 4vw, 36px); text-align: center; margin-bottom: 40px; }
+    .para-quem-list { max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+    .para-quem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      padding: 20px 24px;
+      transition: transform 0.25s ease;
+    }
+    .para-quem-item:hover { transform: translateX(6px); }
+    .para-quem-icon { font-size: 20px; flex-shrink: 0; }
+    .para-quem-item p { font-size: 17px; color: var(--text-secondary); }
+
+    /* ── GARANTIA ── */
+    #garantia { background: var(--bg-secondary); text-align: center; }
+    .garantia-box {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 2px solid var(--border-gold-strong);
+      border-radius: 20px;
+      padding: 50px 40px;
+      box-shadow: 0 8px 40px rgba(201,168,76,0.12);
+    }
+    .garantia-badge {
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #1a3a1a, #0f1b0f);
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 44px;
+      margin: 0 auto 28px;
+      box-shadow: 0 0 30px rgba(201,168,76,0.2);
+    }
+    #garantia h2 { color: var(--gold); font-size: clamp(26px, 4vw, 34px); margin-bottom: 20px; }
+    .garantia-text { font-size: 17px; color: var(--text-secondary); line-height: 1.8; }
+    .garantia-text strong { color: var(--text-main); }
+
+    /* ── DEPOIMENTOS ── */
+    #depoimentos { background: var(--bg-primary); }
+    #depoimentos h2 { color: var(--text-main); font-size: clamp(26px, 4vw, 36px); text-align: center; margin-bottom: 40px; }
+    .depoimentos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    @media (max-width: 768px) { .depoimentos-grid { grid-template-columns: 1fr; } }
+    @media (min-width: 641px) and (max-width: 768px) { .depoimentos-grid { grid-template-columns: repeat(2, 1fr); } }
+    .dep-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 28px 26px;
+      box-shadow: var(--shadow-gold);
+      transition: transform 0.25s ease;
+    }
+    .dep-card:hover { transform: translateY(-4px); }
+    .dep-stars { color: #f0b429; font-size: 16px; letter-spacing: 2px; margin-bottom: 14px; }
+    .dep-text { font-size: 15px; color: var(--text-secondary); margin-bottom: 18px; font-style: italic; line-height: 1.7; }
+    .dep-author { display: flex; align-items: center; gap: 12px; }
+    .dep-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid var(--border-gold-strong);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      background: var(--green-accent);
+      flex-shrink: 0;
+    }
+    .dep-name { font-weight: 600; color: var(--text-main); font-size: 14px; }
+    .dep-sub { font-size: 13px; color: #6a7a6a; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--bg-secondary); }
+    #faq h2 { color: var(--gold); font-size: clamp(26px, 4vw, 36px); text-align: center; margin-bottom: 40px; }
+    .faq-list { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      text-align: left;
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: color 0.2s ease;
+    }
+    .faq-question:hover { color: var(--gold-light); }
+    .faq-icon { font-size: 20px; flex-shrink: 0; transition: transform 0.3s ease; color: var(--gold); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      font-size: 15px;
+      color: var(--text-secondary);
+      padding: 0 24px;
+    }
+    .faq-item.open .faq-answer { max-height: 400px; padding: 0 24px 20px; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* ── FINAL CTA ── */
+    #final-cta {
+      background: linear-gradient(180deg, var(--bg-primary) 0%, #0a150a 100%);
+      text-align: center;
+    }
+    #final-cta h2 { color: var(--text-main); font-size: clamp(28px, 4.5vw, 44px); margin-bottom: 16px; max-width: 800px; margin-left: auto; margin-right: auto; }
+    #final-cta .final-sub { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto 40px; }
+    .price-hero { font-family: 'Playfair Display', serif; font-size: clamp(42px, 7vw, 68px); font-weight: 700; color: #5dba5d; line-height: 1.1; margin: 10px 0 6px; }
+    .price-hero-old { font-size: 20px; color: var(--red); text-decoration: line-through; margin-bottom: 8px; }
+    .price-hero-note { font-size: 14px; color: #6a7a6a; margin-bottom: 36px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #080f08;
+      padding: 36px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: #4a5a4a;
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    footer a { color: #6a7a6a; text-decoration: none; }
+    footer a:hover { color: var(--gold); }
+
+    /* ── FLOATING CTA ── */
+    #floating-cta {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 999;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+      pointer-events: none;
+    }
+    #floating-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+    #floating-cta a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--cta-green);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 14px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      animation: pulse-cta 2.2s infinite;
+      box-shadow: 0 4px 20px rgba(26,122,26,0.4);
+    }
+    #floating-cta a:hover { background: var(--cta-hover); }
+
+    /* ── DECORATIVE SVG LEAF ── */
+    .section-leaf-tl {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.1;
+      pointer-events: none;
+    }
+    .section-leaf-br {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      opacity: 0.1;
+      pointer-events: none;
+      transform: rotate(180deg);
+    }
+
+    /* ── RESPONSIVE TWEAKS ── */
+    @media (max-width: 768px) {
+      .section-pad { padding: 60px 0; }
+      .kit-card { padding: 24px 22px; }
+      .garantia-box { padding: 36px 24px; }
+      .price-row { padding: 12px 18px; font-size: 14px; }
+      .price-row.final-row { padding: 18px; }
+      #floating-cta { bottom: 14px; right: 14px; }
+      #floating-cta a { font-size: 13px; padding: 12px 16px; }
+    }
+    @media (max-width: 480px) {
+      #urgency-bar { flex-direction: column; gap: 6px; padding: 10px 16px; }
+      body { padding-top: 70px; }
+    }
+
+    /* ── GRADIENT TRANSITIONS BETWEEN SECTIONS ── */
+    .gradient-down { background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%); }
+    .gradient-up { background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%); }
+
+    /* ── SCROLL PROGRESS ── */
+    #scroll-progress {
+      position: fixed;
+      top: 52px;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      width: 0%;
+      z-index: 999;
+      transition: width 0.1s linear;
+    }
+    @media (max-width: 480px) { #scroll-progress { top: 70px; } }
+  </style>
+</head>
+<body>
+
+<!-- ══ URGENCY BAR ══ -->
+<div id="urgency-bar">
+  <span class="urgency-text">⚡ OFERTA POR TEMPO LIMITADO — De R$97 por apenas R$19,90</span>
+  <span id="countdown-bar">⏱ <span id="timer">72h 00m 00s</span></span>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- ══ HERO ══ -->
+<section id="hero" class="section">
+  <!-- Decorative leaf SVG top right -->
+  <svg class="hero-leaf" width="320" height="320" viewBox="0 0 320 320" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;top:0;right:0;opacity:0.15;pointer-events:none;">
+    <path d="M320 0C320 0 180 20 100 120C40 200 60 320 60 320C60 320 200 260 260 180C320 100 320 0 320 0Z" fill="#c9a84c"/>
+    <path d="M290 0C290 0 190 40 130 120C80 190 90 290 90 290C90 290 200 230 250 160C300 90 290 0 290 0Z" fill="#1a2e1a"/>
+  </svg>
+  <!-- Decorative leaf SVG bottom left -->
+  <svg class="hero-leaf-left" width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" style="position:absolute;bottom:0;left:0;opacity:0.1;pointer-events:none;transform:rotate(180deg)scaleX(-1);">
+    <path d="M0 240C0 240 120 200 180 120C220 60 200 0 200 0C200 0 80 60 40 140C0 220 0 240 0 240Z" fill="#c9a84c"/>
+  </svg>
+
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">Para pais cristãos que amam seus filhos</p>
+    </div>
+    <div class="fade-in fade-in-delay-1">
+      <h1>"Como Criar Filhos com Raízes Profundas em Cristo — Mesmo em um Mundo que Tenta Arrancar Tudo"</h1>
+    </div>
+    <div class="fade-in fade-in-delay-2" style="margin-top:28px;">
+      <div class="gold-divider"></div>
+    </div>
+    <div class="fade-in fade-in-delay-2">
+      <p class="subheadline">5 ebooks práticos, bíblicos e acolhedores para formar a fé, o caráter e a identidade dos seus filhos — sem culpa, sem perfeição, com graça.</p>
+    </div>
+    <div class="fade-in fade-in-delay-3">
+      <a href="https://pay.kiwify.com.br/QNdFfT6" class="cta-btn" target="_blank" rel="noopener">🌿 QUERO O KIT AGORA POR R$19,90</a>
+      <p class="cta-trust">🔒 Compra 100% segura · Acesso imediato · Garantia de 7 dias</p>
+    </div>
+    <div class="fade-in fade-in-delay-4">
+      <div class="social-proof">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <span>Centenas de famílias já plantando sementes de fé em casa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DOR ══ -->
+<section id="dor" class="section section-pad">
+  <svg class="section-leaf-tl" width="180" height="180" viewBox="0 0 180 180" fill="none"><path d="M0 0C0 0 80 20 120 80C150 130 140 180 140 180C140 180 60 140 30 80C5 30 0 0 0 0Z" fill="#c9a84c"/></svg>
+  <div class="container">
+    <div class="fade-in">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,36px);color:var(--gold);text-align:center;margin-bottom:12px;">Você se identifica com alguma dessas situações?</h2>
+      <p style="text-align:center;color:var(--text-secondary);font-size:16px;max-width:580px;margin:0 auto;">Marque mentalmente cada ponto que faz parte da sua realidade como pai ou mãe:</p>
+    </div>
+
+    <div class="dor-grid">
+      <div class="dor-card fade-in fade-in-delay-1">
+        <span class="dor-checkbox">☐</span>
+        <p>Sente que a internet, os amigos e a escola formam mais seus filhos do que você</p>
+      </div>
+      <div class="dor-card fade-in fade-in-delay-1">
+        <span class="dor-checkbox">☐</span>
+        <p>Quer criar momentos espirituais em família, mas não sabe por onde começar</p>
+      </div>
+      <div class="dor-card fade-in fade-in-delay-2">
+        <span class="dor-checkbox">☐</span>
+        <p>Fica com culpa por não ter uma rotina bíblica perfeita em casa</p>
+      </div>
+      <div class="dor-card fade-in fade-in-delay-2">
+        <span class="dor-checkbox">☐</span>
+        <p>Tem medo de que seus filhos se afastem da fé quando crescerem</p>
+      </div>
+      <div class="dor-card fade-in fade-in-delay-3">
+        <span class="dor-checkbox">☐</span>
+        <p>Quer conversar sobre temas difíceis com seus filhos, mas teme afastá-los</p>
+      </div>
+      <div class="dor-card fade-in fade-in-delay-3">
+        <span class="dor-checkbox">☐</span>
+        <p>Corrige comportamentos, mas sente que não está alcançando o coração</p>
+      </div>
+      <div class="dor-card fade-in fade-in-delay-4" style="grid-column: 1 / -1;">
+        <span class="dor-checkbox">☐</span>
+        <p>Seu filho ouve sobre Deus na igreja, mas não vê isso vivo dentro de casa</p>
+      </div>
+    </div>
+
+    <div class="empathy-box fade-in" style="margin-top:40px;">
+      "Se você se identificou com pelo menos um desses pontos, saiba: <strong style="color:var(--gold);">você não está falhando. Você está acordado.</strong> E este kit foi feito exatamente para você."
+    </div>
+  </div>
+</section>
+
+<!-- ══ VIRADA ══ -->
+<section id="virada" class="section section-pad" style="background:var(--bg-primary);">
+  <div class="container">
+    <div class="fade-in">
+      <div class="gold-divider-sm"></div>
+    </div>
+    <div class="fade-in fade-in-delay-1">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,36px);color:var(--text-main);text-align:center;margin:28px 0 40px;">A verdade que nenhum curso de parentalidade te conta</h2>
+    </div>
+    <div class="virada-text fade-in fade-in-delay-2">
+      <p class="virada-p">Filhos não precisam de pais perfeitos. Precisam de pais <strong style="color:var(--text-main);">presentes, intencionais e firmados em Cristo.</strong></p>
+      <p class="virada-p">Não é sobre ter a rotina ideal. É sobre plantar sementes — na mesa do jantar, no caminho para a escola, na hora de dormir, no pedido de perdão.</p>
+      <div class="virada-highlight fade-in fade-in-delay-3">
+        "Pequenas práticas repetidas com fidelidade formam raízes que nenhuma tempestade derruba."
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ KIT ══ -->
+<section id="kit" class="section section-pad" style="background:var(--bg-secondary);">
+  <svg class="section-leaf-br" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M200 200C200 200 100 170 60 110C20 50 40 0 40 0C40 0 160 40 180 110C200 170 200 200 200 200Z" fill="#c9a84c"/></svg>
+  <div class="container">
+    <div class="fade-in">
+      <h2>Conheça o Kit Completo</h2>
+      <p class="kit-sub">5 ebooks para transformar sua família de dentro para fora</p>
+    </div>
+
+    <div class="kit-cards">
+      <!-- CARD 1 -->
+      <div class="kit-card fade-in">
+        <span class="kit-number">1</span>
+        <span class="kit-badge">📘 GUIA PRINCIPAL PARA PAIS</span>
+        <h3>Filhos Firmados na Rocha</h3>
+        <p class="kit-desc">O guia completo para pais cristãos que querem formar filhos com fé, identidade, discernimento e raízes profundas em Cristo. 7 capítulos práticos sobre disciplina, rotina espiritual, temas difíceis e como preparar seus filhos para o mundo.</p>
+        <p class="kit-for"><strong>✅ Para quem:</strong> Pais e mães que querem ser intencionais na formação espiritual dos filhos.</p>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="kit-card fade-in fade-in-delay-1">
+        <span class="kit-number">2</span>
+        <span class="kit-badge">📖 HISTÓRIAS DA BÍBLIA</span>
+        <h3>10 Histórias Bíblicas Infantis</h3>
+        <p class="kit-desc">10 histórias baseadas diretamente na Bíblia — da Criação ao milagre dos pães e peixes — com "Momento da Conversa", Sementinha do Dia e oração. Perfeito para a hora de dormir ou devocional em família.</p>
+        <p class="kit-for"><strong>✅ Para quem:</strong> Crianças de todas as idades que precisam conhecer os heróis da fé.</p>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="kit-card fade-in fade-in-delay-2">
+        <span class="kit-number">3</span>
+        <span class="kit-badge">🌱 HISTÓRIAS ORIGINAIS — VOL. 1</span>
+        <h3>Jardim das Histórias de Deus — Volume 1</h3>
+        <p class="kit-desc">10 histórias originais e encantadoras sobre amor ao próximo, perdão, honestidade, gratidão, obediência, fé, generosidade, coragem, humildade e paciência. Cada história com versículo, conversa em família e oração.</p>
+        <p class="kit-for"><strong>✅ Para quem:</strong> Crianças de 4 a 10 anos — leitura em voz alta antes de dormir.</p>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="kit-card fade-in fade-in-delay-3">
+        <span class="kit-number">4</span>
+        <span class="kit-badge">🌿 HISTÓRIAS ORIGINAIS — VOL. 2</span>
+        <h3>Jardim das Histórias de Deus — Volume 2</h3>
+        <p class="kit-desc">10 novas histórias sobre cuidado com as palavras, inclusão, descanso em Deus, compaixão pelos mais velhos, coragem para a verdade, contentamento, trabalho em equipe, autocontrole, identidade e evangelismo.</p>
+        <p class="kit-for"><strong>✅ Para quem:</strong> Continuar o hábito diário de leitura bíblica em família.</p>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="kit-card fade-in fade-in-delay-4">
+        <span class="kit-number">5</span>
+        <span class="kit-badge">🌳 HISTÓRIAS ORIGINAIS — VOL. 3</span>
+        <h3>Jardim das Histórias de Deus — Volume 3</h3>
+        <p class="kit-desc">10 histórias sobre compaixão pelos animais, ser pacificador, perseverança, responsabilidade, superando a inveja, ouvir conselhos, fidelidade e promessas, encorajamento, humildade e cuidado com a criação de Deus.</p>
+        <p class="kit-for"><strong>✅ Para quem:</strong> Completar a formação de caráter com valores bíblicos profundos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ VALOR ══ -->
+<section id="valor" class="section section-pad" style="background:var(--bg-primary);">
+  <div class="container">
+    <div class="fade-in">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,36px);color:var(--text-main);text-align:center;margin-bottom:40px;">Tudo isso por quanto?</h2>
+    </div>
+
+    <div class="price-table fade-in fade-in-delay-1">
+      <div class="price-row">
+        <span class="item-name">Filhos Firmados na Rocha</span>
+        <span class="item-price">R$ 27,00</span>
+      </div>
+      <div class="price-row">
+        <span class="item-name">10 Histórias Bíblicas Infantis</span>
+        <span class="item-price">R$ 17,00</span>
+      </div>
+      <div class="price-row">
+        <span class="item-name">Jardim das Histórias Vol. 1</span>
+        <span class="item-price">R$ 17,00</span>
+      </div>
+      <div class="price-row">
+        <span class="item-name">Jardim das Histórias Vol. 2</span>
+        <span class="item-price">R$ 17,00</span>
+      </div>
+      <div class="price-row">
+        <span class="item-name">Jardim das Histórias Vol. 3</span>
+        <span class="item-price">R$ 17,00</span>
+      </div>
+      <div class="price-separator"></div>
+      <div class="price-row total-row">
+        <span class="item-name">VALOR TOTAL</span>
+        <span class="item-price" style="font-size:16px;">R$ 97,00</span>
+      </div>
+      <div class="price-row final-row">
+        <span class="item-name">✨ VOCÊ PAGA HOJE</span>
+        <span class="final-price">R$ 19,90</span>
+      </div>
+    </div>
+
+    <p class="valor-note fade-in fade-in-delay-2">Menos do que um livro físico. Sem frete. Sem prazo. <strong style="color:var(--text-main);">Acesso para sempre.</strong></p>
+
+    <div class="fade-in fade-in-delay-3" style="text-align:center;">
+      <a href="https://pay.kiwify.com.br/QNdFfT6" class="cta-btn" target="_blank" rel="noopener">🌿 QUERO O KIT AGORA POR R$19,90</a>
+      <p class="cta-trust">🔒 Compra 100% segura · Acesso imediato · Garantia de 7 dias</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ BENEFÍCIOS ══ -->
+<section id="beneficios" class="section section-pad" style="background:var(--bg-secondary);">
+  <div class="container">
+    <div class="fade-in">
+      <h2>O que muda na sua família com este Kit:</h2>
+    </div>
+    <div class="gold-divider fade-in" style="margin:20px auto 36px;"></div>
+
+    <div class="beneficios-grid">
+      <div class="beneficio-card fade-in">
+        <span class="beneficio-icon" style="color:var(--gold);">✅</span>
+        <p>Momentos de discipulado no dia a dia — sem precisar de uma rotina perfeita</p>
+      </div>
+      <div class="beneficio-card fade-in fade-in-delay-1">
+        <span class="beneficio-icon" style="color:var(--gold);">✅</span>
+        <p>Histórias prontas para ler com seus filhos, com base bíblica e perguntas de conversa</p>
+      </div>
+      <div class="beneficio-card fade-in fade-in-delay-1">
+        <span class="beneficio-icon" style="color:var(--gold);">✅</span>
+        <p>Como falar sobre ansiedade, identidade e amizades com verdade e graça</p>
+      </div>
+      <div class="beneficio-card fade-in fade-in-delay-2">
+        <span class="beneficio-icon" style="color:var(--gold);">✅</span>
+        <p>Disciplina que alcança o coração — não apenas o comportamento</p>
+      </div>
+      <div class="beneficio-card fade-in fade-in-delay-2">
+        <span class="beneficio-icon" style="color:var(--gold);">✅</span>
+        <p>Uma cultura espiritual em casa com práticas simples e constantes</p>
+      </div>
+      <div class="beneficio-card fade-in fade-in-delay-3">
+        <span class="beneficio-icon" style="color:var(--gold);">✅</span>
+        <p>Filhos preparados para permanecer firmes mesmo quando você não estiver por perto</p>
+      </div>
+      <div class="beneficio-card fade-in fade-in-delay-3" style="grid-column: 1 / -1; max-width: 100%;">
+        <span class="beneficio-icon" style="color:var(--gold);">✅</span>
+        <p>Mais confiança, intenção e paz na sua missão como pai ou mãe</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARA QUEM ══ -->
+<section id="para-quem" class="section section-pad" style="background:var(--bg-primary);">
+  <svg class="section-leaf-tl" width="160" height="160" viewBox="0 0 160 160" fill="none"><path d="M0 0C0 0 70 20 100 70C125 115 110 160 110 160C110 160 30 120 15 70C0 25 0 0 0 0Z" fill="#c9a84c"/></svg>
+  <div class="container">
+    <div class="fade-in">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,36px);color:var(--text-main);text-align:center;margin-bottom:40px;">Este Kit foi feito para você se...</h2>
+    </div>
+
+    <div class="para-quem-list">
+      <div class="para-quem-item fade-in">
+        <span class="para-quem-icon">🌿</span>
+        <p>É pai ou mãe cristão(ã) e quer formar filhos com fé genuína</p>
+      </div>
+      <div class="para-quem-item fade-in fade-in-delay-1">
+        <span class="para-quem-icon">🌿</span>
+        <p>Quer ter conversas espirituais em família, mas não sabe como começar</p>
+      </div>
+      <div class="para-quem-item fade-in fade-in-delay-1">
+        <span class="para-quem-icon">🌿</span>
+        <p>Tem filhos pequenos ou adolescentes e quer criar memórias de fé em casa</p>
+      </div>
+      <div class="para-quem-item fade-in fade-in-delay-2">
+        <span class="para-quem-icon">🌿</span>
+        <p>É educador(a), líder de ministério infantil ou escola bíblica dominical</p>
+      </div>
+      <div class="para-quem-item fade-in fade-in-delay-2">
+        <span class="para-quem-icon">🌿</span>
+        <p>Quer dar um presente significativo e transformador para uma família cristã</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GARANTIA ══ -->
+<section id="garantia" class="section section-pad" style="background:var(--bg-secondary);">
+  <div class="container">
+    <div class="garantia-box fade-in">
+      <div class="garantia-badge">🛡️</div>
+      <h2>Garantia Incondicional de 7 Dias</h2>
+      <div style="width:50px;height:2px;background:var(--gold);margin:20px auto 28px;"></div>
+      <p class="garantia-text">
+        Acreditamos tanto neste material que oferecemos <strong>garantia total de 7 dias.</strong><br /><br />
+        Se por qualquer motivo você não ficar satisfeito com o conteúdo dos ebooks, basta nos enviar uma mensagem dentro de 7 dias após a compra e <strong>devolvemos 100% do seu dinheiro</strong> — sem perguntas, sem burocracia, sem julgamento.<br /><br />
+        Você não tem nada a perder. Mas tem muito a ganhar: <strong>uma família mais enraizada em Cristo.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DEPOIMENTOS ══ -->
+<section id="depoimentos" class="section section-pad" style="background:var(--bg-primary);">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-label">O que as famílias estão dizendo</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,36px);color:var(--text-main);text-align:center;margin-bottom:40px;">Famílias Transformadas pela Palavra</h2>
+    </div>
+
+    <div class="depoimentos-grid">
+      <div class="dep-card fade-in">
+        <div class="dep-stars">⭐⭐⭐⭐⭐</div>
+        <p class="dep-text">"Comprei sem muita expectativa e fui completamente surpreendida. Minha filha de 6 anos pede toda noite para eu ler uma história do Jardim. É um momento sagrado que não existia antes!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <p class="dep-name">Fernanda Oliveira</p>
+            <p class="dep-sub">Mãe de 2 filhos · SP</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card fade-in fade-in-delay-1">
+        <div class="dep-stars">⭐⭐⭐⭐⭐</div>
+        <p class="dep-text">"O guia 'Filhos Firmados na Rocha' mudou minha perspectiva de pai. Parei de me cobrar por não ter uma rotina perfeita e comecei a plantar sementes onde posso. Conteúdo bíblico e muito prático."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👨</div>
+          <div>
+            <p class="dep-name">Ricardo Mendes</p>
+            <p class="dep-sub">Pai de 3 filhos · MG</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card fade-in fade-in-delay-2">
+        <div class="dep-stars">⭐⭐⭐⭐⭐</div>
+        <p class="dep-text">"Uso os volumes do Jardim na minha turma da escola dominical. As crianças adoram! As histórias são encantadoras e as perguntas de conversa criam discussões lindas. Recomendo de coração!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <p class="dep-name">Patrícia Santos</p>
+            <p class="dep-sub">Líder de ministério infantil · RJ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card fade-in fade-in-delay-1">
+        <div class="dep-stars">⭐⭐⭐⭐⭐</div>
+        <p class="dep-text">"Dei de presente para minha irmã que estava com dificuldades para criar momentos de fé em casa. Ela me ligou emocionada depois da primeira semana. Um investimento que vale muito mais do que o preço."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <p class="dep-name">Juliana Costa</p>
+            <p class="dep-sub">Tia presente e cristã · BA</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card fade-in fade-in-delay-2">
+        <div class="dep-stars">⭐⭐⭐⭐⭐</div>
+        <p class="dep-text">"Meu filho de 8 anos já me pergunta: 'Pai, qual história a gente vai ler hoje?' Isso não tem preço. As histórias bíblicas infantis são excelentes — simples, profundas e com aplicações reais."</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👨</div>
+          <div>
+            <p class="dep-name">Anderson Lima</p>
+            <p class="dep-sub">Pai e pastor · GO</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dep-card fade-in fade-in-delay-3">
+        <div class="dep-stars">⭐⭐⭐⭐⭐</div>
+        <p class="dep-text">"Finalmente um material que fala com a realidade de mãe cansada, sem tempo para montar devocional do zero. As histórias prontas com oração já mudaram nossa casa. Obrigada de coração!"</p>
+        <div class="dep-author">
+          <div class="dep-avatar">👩</div>
+          <div>
+            <p class="dep-name">Márcia Ferreira</p>
+            <p class="dep-sub">Mãe solo e guerreira · RS</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq" class="section section-pad" style="background:var(--bg-secondary);">
+  <div class="container">
+    <div class="fade-in">
+      <h2>Perguntas Frequentes</h2>
+    </div>
+    <div class="gold-divider fade-in" style="margin:20px auto 40px;"></div>
+
+    <div class="faq-list">
+      <div class="faq-item fade-in">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>O Kit é físico ou digital?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          O Kit é 100% digital. Após a compra você recebe acesso imediato por e-mail para fazer o download dos 5 ebooks em formato PDF, que podem ser lidos em qualquer dispositivo — celular, tablet ou computador. Sem espera, sem frete.
+        </div>
+      </div>
+
+      <div class="faq-item fade-in fade-in-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Para qual faixa etária são indicados os ebooks?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          O guia principal "Filhos Firmados na Rocha" é voltado para os pais. As histórias bíblicas e os volumes do Jardim são ideais para crianças de 4 a 12 anos, mas podem ser adaptados para crianças menores (com os pais lendo em voz alta) ou maiores, dependendo do desenvolvimento de cada criança.
+        </div>
+      </div>
+
+      <div class="faq-item fade-in fade-in-delay-1">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>E se eu não gostar? Tem garantia?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Sim! Você tem 7 dias de garantia incondicional. Se por qualquer motivo não ficar satisfeito, basta enviar uma mensagem dentro desse prazo e devolvemos 100% do seu dinheiro — sem burocracia e sem perguntas.
+        </div>
+      </div>
+
+      <div class="faq-item fade-in fade-in-delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Como recebo o material após a compra?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Após a confirmação do pagamento (geralmente imediata), você receberá um e-mail com o link para acessar e fazer o download dos 5 ebooks. O processo é totalmente automático e o acesso é vitalício.
+        </div>
+      </div>
+
+      <div class="faq-item fade-in fade-in-delay-2">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>O conteúdo é de alguma denominação específica?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Não. O conteúdo é cristão e baseado diretamente na Bíblia, sendo adequado para famílias de diferentes denominações evangélicas e cristãs. O foco é na Palavra de Deus, em valores bíblicos universais e na formação de caráter com base em Cristo.
+        </div>
+      </div>
+
+      <div class="faq-item fade-in fade-in-delay-3">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          <span>Posso dar de presente para outra família?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          Sim! Muitas pessoas compram o kit como presente para amigos e familiares cristãos. Após a compra, basta encaminhar o e-mail com os links de download para a família presenteada. É um presente com impacto eterno!
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FINAL CTA ══ -->
+<section id="final-cta" class="section section-pad" style="background:linear-gradient(180deg, var(--bg-primary) 0%, #080f08 100%);">
+  <svg class="section-leaf-tl" width="200" height="200" viewBox="0 0 200 200" fill="none"><path d="M0 0C0 0 100 20 150 90C190 150 180 200 180 200C180 200 60 160 20 90C-10 30 0 0 0 0Z" fill="#c9a84c"/></svg>
+  <div class="container">
+    <div class="fade-in" style="text-align:center;">
+      <p class="section-label">Não espere o momento perfeito</p>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,4.5vw,44px);color:var(--text-main);max-width:800px;margin:16px auto 20px;">Plante Hoje as Sementes que seus Filhos Colherão pelo Resto da Vida</h2>
+      <div class="gold-divider" style="margin:24px auto;"></div>
+      <p class="final-sub">O mundo nunca vai parar de tentar arrancar a fé dos seus filhos. Mas você tem em mãos as ferramentas para plantar raízes mais profundas do que qualquer tempestade.</p>
+
+      <div style="margin-bottom:36px;">
+        <p class="price-hero-old">De R$ 97,00</p>
+        <p class="price-hero">R$ 19,90</p>
+        <p class="price-hero-note">Pagamento único · Acesso vitalício · 5 ebooks completos</p>
+      </div>
+
+      <a href="https://pay.kiwify.com.br/QNdFfT6" class="cta-btn" target="_blank" rel="noopener" style="font-size:clamp(17px,2.5vw,21px);padding:22px 56px;">🌿 QUERO CRIAR FILHOS FIRMADOS NA ROCHA</a>
+      <p class="cta-trust" style="margin-top:18px;">🔒 Compra 100% segura via Kiwify · Cartão ou PIX · Acesso imediato</p>
+
+      <div style="margin-top:40px;display:flex;justify-content:center;align-items:center;gap:32px;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:6px;">🛡️</div>
+          <p style="font-size:12px;color:#6a7a6a;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Garantia<br>7 Dias</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:6px;">⚡</div>
+          <p style="font-size:12px;color:#6a7a6a;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Acesso<br>Imediato</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:6px;">📱</div>
+          <p style="font-size:12px;color:#6a7a6a;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Leia em<br>Qualquer Tela</p>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:28px;margin-bottom:6px;">🔒</div>
+          <p style="font-size:12px;color:#6a7a6a;font-weight:600;text-transform:uppercase;letter-spacing:1px;">Pagamento<br>Seguro</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <p style="margin-bottom:12px;">© 2025 Kit Filhos Firmados na Rocha · Todos os direitos reservados</p>
+  <p style="margin-bottom:8px;font-size:12px;">Este produto é 100% digital. Após a compra, o acesso é enviado para o e-mail cadastrado.</p>
+  <p>
+    <a href="#">Política de Privacidade</a>
+    &nbsp;·&nbsp;
+    <a href="#">Termos de Uso</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:suporte@filhosfirmados.com.br">Suporte</a>
+  </p>
+</footer>
+
+<!-- ══ FLOATING CTA ══ -->
+<div id="floating-cta">
+  <a href="https://pay.kiwify.com.br/QNdFfT6" target="_blank" rel="noopener">
+    🌿 <span>R$19,90 — Quero o Kit</span>
+  </a>
+</div>
+
+<script>
+  // ── COUNTDOWN TIMER (72 hours from page load) ──
+  (function() {
+    const KEY = 'filhos_deadline';
+    let deadline = localStorage.getItem(KEY);
+    if (!deadline) {
+      deadline = Date.now() + 29 * 60 * 1000 + 59 * 1000;
+      localStorage.setItem(KEY, deadline);
+    } else {
+      deadline = parseInt(deadline);
+      if (deadline < Date.now()) {
+        deadline = Date.now() + 29 * 60 * 1000 + 59 * 1000;
+        localStorage.setItem(KEY, deadline);
+      }
+    }
+
+    function updateTimer() {
+      const now = Date.now();
+      const diff = Math.max(0, deadline - now);
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('timer').textContent = pad(h) + 'h ' + pad(m) + 'm ' + pad(s) + 's';
+    }
+
+    updateTimer();
+    setInterval(updateTimer, 1000);
+  })();
+
+  // ── INTERSECTION OBSERVER FADE-IN ──
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  fadeEls.forEach(el => observer.observe(el));
+
+  // ── FLOATING CTA SHOW/HIDE ──
+  const floatingCta = document.getElementById('floating-cta');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) {
+      floatingCta.classList.add('visible');
+    } else {
+      floatingCta.classList.remove('visible');
+    }
+  });
+
+  // ── SCROLL PROGRESS BAR ──
+  const progressBar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+    progressBar.style.width = progress + '%';
+  });
+
+  // ── FAQ TOGGLE ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // ── SMOOTH SCROLL FOR ANCHORS ──
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ── CHECKBOX INTERACTIVE EFFECT ──
+  document.querySelectorAll('.dor-card').forEach(card => {
+    const checkbox = card.querySelector('.dor-checkbox');
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function() {
+      if (checkbox.textContent === '☐') {
+        checkbox.textContent = '☑';
+        checkbox.style.color = '#5dba5d';
+        card.style.borderLeftColor = '#5dba5d';
+      } else {
+        checkbox.textContent = '☐';
+        checkbox.style.color = 'var(--gold)';
+        card.style.borderLeftColor = 'var(--gold)';
+      }
+    });
+  });
+</script>
+</body>
+</html>
