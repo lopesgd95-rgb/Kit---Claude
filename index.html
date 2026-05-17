@@ -432,19 +432,7 @@
       padding: 50px 40px;
       box-shadow: 0 8px 40px rgba(201,168,76,0.12);
     }
-    .garantia-badge {
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle, #1a3a1a, #0f1b0f);
-      border: 3px solid var(--gold);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 44px;
-      margin: 0 auto 28px;
-      box-shadow: 0 0 30px rgba(201,168,76,0.2);
-    }
+    .garantia-badge { display: none; }
     #garantia h2 { color: var(--gold); font-size: clamp(26px, 4vw, 34px); margin-bottom: 20px; }
     .garantia-text { font-size: 17px; color: var(--text-secondary); line-height: 1.8; }
     .garantia-text strong { color: var(--text-main); }
@@ -660,6 +648,20 @@
     <div class="fade-in fade-in-delay-2">
       <p class="subheadline">5 ebooks práticos, bíblicos e acolhedores para formar a fé, o caráter e a identidade dos seus filhos — sem culpa, sem perfeição, com graça.</p>
     </div>
+
+    <!-- MOCKUP DOS EBOOKS -->
+    <div class="fade-in fade-in-delay-2" style="margin: 36px auto 40px; max-width: 860px; padding: 0 16px;">
+      <div style="position:relative; border-radius:20px; overflow:hidden; box-shadow: 0 8px 48px rgba(201,168,76,0.22), 0 2px 16px rgba(0,0,0,0.5);">
+        <img
+          src="https://raw.githubusercontent.com/lopesgd95-rgb/Kit---Claude/main/CAPA_PAGINA_WEB.webp"
+          alt="Kit completo — 5 ebooks Filhos Firmados na Rocha"
+          style="width:100%; display:block; border-radius:20px;"
+        />
+        <!-- Overlay gradiente suave na base para transição com o fundo -->
+        <div style="position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to bottom, transparent, #1a2e1a); pointer-events:none; border-radius:0 0 20px 20px;"></div>
+      </div>
+    </div>
+
     <div class="fade-in fade-in-delay-3">
       <a href="https://pay.kiwify.com.br/QNdFfT6" class="cta-btn" target="_blank" rel="noopener">🌿 QUERO O KIT AGORA POR R$19,90</a>
       <p class="cta-trust">🔒 Compra 100% segura · Acesso imediato · Garantia de 7 dias</p>
@@ -922,7 +924,50 @@
 <section id="garantia" class="section section-pad" style="background:var(--bg-secondary);">
   <div class="container">
     <div class="garantia-box fade-in">
-      <div class="garantia-badge">🛡️</div>
+
+      <!-- SELO DE GARANTIA SVG -->
+      <div style="display:flex;justify-content:center;margin-bottom:32px;">
+        <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter:drop-shadow(0 0 24px rgba(201,168,76,0.35));">
+          <!-- Estrelas externas decorativas -->
+          <g opacity="0.7">
+            <polygon points="90,6 93.5,16.5 104.5,16.5 95.9,23 99.4,33.5 90,27 80.6,33.5 84.1,23 75.5,16.5 86.5,16.5" fill="#c9a84c"/>
+          </g>
+          <!-- Anel externo dentado (estrela de 16 pontas) -->
+          <path d="M90 14
+            L94.5 26.5 L106 20 L102.5 32.5 L115.5 30 L108 41 L121 43.5 L111 52 L122 59 L110.5 64 L119 74 L107 75.5 L112 87.5 L100 86 L101 98.5 L90 94 L79 98.5 L80 86 L68 87.5 L73 75.5 L61 74 L69.5 64 L58 59 L69 52 L59 43.5 L72 41 L64.5 30 L77.5 32.5 L74 20 L86 26.5 Z"
+            fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.4"/>
+          <!-- Círculo externo -->
+          <circle cx="90" cy="90" r="72" fill="none" stroke="#c9a84c" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.5"/>
+          <!-- Círculo médio preenchido -->
+          <circle cx="90" cy="90" r="62" fill="url(#garantiaGrad)"/>
+          <!-- Círculo médio borda dourada -->
+          <circle cx="90" cy="90" r="62" fill="none" stroke="#c9a84c" stroke-width="2.5"/>
+          <!-- Círculo interno borda -->
+          <circle cx="90" cy="90" r="54" fill="none" stroke="#e8c96a" stroke-width="1" opacity="0.4"/>
+          <!-- Escudo SVG centralizado -->
+          <path d="M90 46 L114 56 L114 84 C114 99 103 111 90 116 C77 111 66 99 66 84 L66 56 Z"
+            fill="url(#escudoGrad)" stroke="#e8c96a" stroke-width="1.8"/>
+          <!-- Brilho no escudo -->
+          <path d="M90 50 L110 59 L110 84 C110 97 100 108 90 113"
+            fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="6" stroke-linecap="round"/>
+          <!-- Check mark -->
+          <path d="M78 87 L86 96 L104 76" stroke="white" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+          <!-- Gradientes -->
+          <defs>
+            <radialGradient id="garantiaGrad" cx="50%" cy="40%" r="60%">
+              <stop offset="0%" stop-color="#1e3d1e"/>
+              <stop offset="100%" stop-color="#0a1a0a"/>
+            </radialGradient>
+            <linearGradient id="escudoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c9a84c"/>
+              <stop offset="40%" stop-color="#a07830"/>
+              <stop offset="100%" stop-color="#6b4f1a"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
       <h2>Garantia Incondicional de 7 Dias</h2>
       <div style="width:50px;height:2px;background:var(--gold);margin:20px auto 28px;"></div>
       <p class="garantia-text">
